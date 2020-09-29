@@ -1,10 +1,28 @@
 <template>
   <div class="login">
-    <button class="btn btn-primary">
+    <button @click="login" class="btn btn-primary">
       Sign in with Spotify
     </button>
   </div>
 </template>
+
+<script>
+import store from "@/store/store.js"
+
+export default {
+  data () {
+    return {
+      username: "login"
+    }
+  },
+  methods: {
+    login() {
+      store.auth = this.username
+      this.$router.push('/user')
+    }
+  }
+}
+</script>
 
 <style scoped>
 .btn {
