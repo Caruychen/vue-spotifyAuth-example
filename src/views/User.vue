@@ -34,6 +34,7 @@
         </dl>
       </b-col>
     </b-row>
+    <button @click="logOut" class="btn btn-secondary">Log out</button>
   </div>
 </template>
 
@@ -45,6 +46,12 @@ export default {
     return {
       user: store.user
     };
+  },
+  methods: {
+    logOut() {
+      store.auth = 'hello'
+      this.$router.push('/login')
+    }
   }
 };
 </script>
@@ -59,5 +66,8 @@ dt {
 }
 dd {
   text-align: left;
+}
+.btn {
+  margin: 20px;
 }
 </style>
