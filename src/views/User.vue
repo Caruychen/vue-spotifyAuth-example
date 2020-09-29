@@ -50,9 +50,6 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  padding: 20px;
-}
 .user-image {
   max-width: 200px;
   height: auto;
