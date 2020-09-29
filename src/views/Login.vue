@@ -1,8 +1,8 @@
 <template>
   <div class="login">
-    <button @click="login" class="btn btn-primary">
+    <a href="http://localhost:8081/login" class="btn btn-primary">
       Sign in with Spotify
-    </button>
+    </a>
   </div>
 </template>
 
