@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>Spotify Authorization example</h1>
   </div>
 </template>
 
