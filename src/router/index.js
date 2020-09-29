@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "../store/store";
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
@@ -7,7 +8,6 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
     component: Home,
     children: [
       {
@@ -20,7 +20,12 @@ const routes = [
         path: "/user",
         name: "User",
         component: () =>
-          import(/* webpackChunkName: "user" */ "../views/User.vue")
+          import(/* webpackChunkName: "user" */ "../views/User.vue"),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: "",
+        redirect: "/user"
       }
     ]
   },
@@ -40,5 +45,21 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if(!store.auth) {
+      next({
+        name: 'Login'
+      })
+    }
+    else {
+      next()
+    }
+  }
+  else {
+    next()
+  }
+})
 
 export default router;
