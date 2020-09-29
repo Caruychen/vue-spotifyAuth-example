@@ -5,12 +5,18 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node src/server/server.js"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.3",
+    "cookie-parser": "^1.4.5",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "query-string": "^6.13.4",
+    "request": "^2.88.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
