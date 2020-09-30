@@ -54,11 +54,16 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+
+  if (to.query.access_token) {
+    store.access_token = to.query.access_token || null;
+    store.refresh_token = to.query.refresh_token || null;
+  }
+
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if(!(store.access_token && store.refresh_token)) {
       next({
-        name: 'Login',
-        query: { redirect: to.fullPath }
+        name: 'Login'
       })
     }
     else {

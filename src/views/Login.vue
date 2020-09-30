@@ -7,21 +7,20 @@
 </template>
 
 <script>
-import store from "@/store/store.js"
+import store from "@/store/store.js";
 
 export default {
-  data () {
+  data() {
     return {
       username: "login"
-    }
+    };
   },
-  methods: {
-    login() {
-      store.auth = this.username
-      this.$router.push('/user')
+  beforeCreate() {
+    if (store.access_token) {
+      this.$router.push('/');
     }
   }
-}
+};
 </script>
 
 <style scoped>
