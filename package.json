@@ -9,6 +9,7 @@
     "start": "node src/server/server.js"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.3",
     "cookie-parser": "^1.4.5",
@@ -18,6 +19,7 @@
     "query-string": "^6.13.4",
     "request": "^2.88.2",
     "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
