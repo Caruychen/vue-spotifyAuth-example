@@ -1,7 +1,5 @@
 import Vue from 'vue'
 export default {
-    access_token: null,
-    refresh_token: null,
     refresh: async () => {
         try {
             const response = await Vue.axios.get('http://localhost:8081/refresh_token', {

@@ -41,7 +41,6 @@
 </template>
 
 <script>
-// import Vue from "vue";
 import store from "@/store/store.js";
 
 export default {
@@ -64,7 +63,6 @@ export default {
         this.user = response.data;
       } catch (error) {
         console.log(`${error} - ${error.response.data.error.message}`)
-
       }
     })();
 
