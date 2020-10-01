@@ -10,9 +10,7 @@ For my example, use the redirect URIs:
 * http://localhost:8081
 * http://localhost:8081/callback
 
-Note that this is used for the server side URI which holds your client id and secrets, and where most of the authentication API calls happen. It is different to the VueJS server address.
-
-Once the app is created replace the following in server.js to match your credentials and server setup:
+This is used for the server side URI which holds your client id and secrets, and where most of the authentication API calls happen. It is different to the VueJS server address. Once the app is created, replace the following in server.js to match your credentials and server setup:
 * CLIENT_ID
 * CLIENT_SECRET
 * REDIRECT_URI
