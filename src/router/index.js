@@ -12,7 +12,7 @@ const routes = [
       {
         path: "/login",
         name: "Login",
-        component: () => 
+        component: () =>
           import(/* webpackChunkName: "login" */ "../views/Login.vue")
       },
       {
@@ -53,31 +53,28 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-
   // Triggered when callback returns with tokens
   if (to.query.access_token) {
-    localStorage.access_token = to.query.access_token
-    localStorage.refresh_token = to.query.refresh_token
+    localStorage.access_token = to.query.access_token;
+    localStorage.refresh_token = to.query.refresh_token;
 
     next({
       path: "/"
-    })
+    });
   }
 
   // Routes requiring authentication are redirected to login if access token not available
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if(!(localStorage.access_token)) {
+    if (!localStorage.access_token) {
       next({
-        name: 'Login'
-      })
+        name: "Login"
+      });
+    } else {
+      next();
     }
-    else {
-      next()
-    }
+  } else {
+    next();
   }
-  else {
-    next()
-  }
-})
+});
 
 export default router;

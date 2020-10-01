@@ -62,10 +62,9 @@ export default {
         const response = await store.getUserData();
         this.user = response.data;
       } catch (error) {
-        console.log(`${error} - ${error.response.data.error.message}`)
+        console.log(`${error} - ${error.response.data.error.message}`);
       }
     })();
-
   }
 };
 </script>
