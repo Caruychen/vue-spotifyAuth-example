@@ -1,4 +1,6 @@
-# spotify-auth
+# Spotify Accounts Authentication Example with VueJS
+
+This project showcases a basic demo of the Authorization Code flow against the Spotify Web API
 
 ## Project setup
 ```
