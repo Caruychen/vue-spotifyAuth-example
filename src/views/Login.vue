@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <a href="http://localhost:8081/login" class="btn btn-primary">
+    <a href="SERVER_PORT_ADDRESS/login" class="btn btn-primary">
       Sign in with Spotify
     </a>
   </div>

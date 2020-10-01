@@ -2,7 +2,7 @@ import Vue from 'vue'
 export default {
     refresh: async () => {
         try {
-            const response = await Vue.axios.get('http://localhost:8081/refresh_token', {
+            const response = await Vue.axios.get('SERVER_PORT_ADDRESS/refresh_token', {
                 params: {
                     refresh_token: localStorage.refresh_token
                 }
