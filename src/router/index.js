@@ -64,7 +64,7 @@ router.beforeEach((to, from, next) => {
     })
   }
 
-  // Routes requiring authentication are redirected to login if access tokens are not in local storage
+  // Routes requiring authentication are redirected to login if access token not available
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if(!(localStorage.access_token)) {
       next({

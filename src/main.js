@@ -25,7 +25,6 @@ axios.interceptors.request.use(
     return Promise.reject(error)
   }
 )
-
 axios.interceptors.response.use(
   response => {
     return response
@@ -34,6 +33,7 @@ axios.interceptors.response.use(
     const status = error.response.status
     const originalConfig = error.config
 
+    // Capture authentication error - return to login
     if (status === 400) {
       router.push({
         name: "Login"

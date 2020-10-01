@@ -10,7 +10,6 @@ export default {
             if (response.status === 200 || response.status === 204) {
                 return localStorage.access_token = response.data.access_token
             }
-
         } catch (error) {
             console.log(`${error} - ${error.response.data.error.error_description}`)
             return null

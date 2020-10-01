@@ -6,17 +6,6 @@
   </div>
 </template>
 
-<script>
-
-export default {
-  data() {
-    return {
-      username: "login"
-    };
-  }
-};
-</script>
-
 <style scoped>
 .btn {
   margin: 20px;
