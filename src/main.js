@@ -12,6 +12,20 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue);
 
+axios.interceptors.request.use(
+  config => {
+    if (localStorage.access_token) {
+      config.headers = {
+        'Authorization': 'Bearer ' + localStorage.access_token
+      }
+    }
+    return config
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
+
 axios.interceptors.response.use(
   response => {
     return response
