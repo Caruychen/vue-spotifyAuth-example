@@ -6,9 +6,9 @@ const cookieParser = require('cookie-parser')
 
 const clientId = 'CLIENT_ID'
 const clientSecret = 'CLIENT_SECRET'
-const redirectUri = 'REDIRECT_URI'
-const server_address = 'VUE_SERVER_ADDRESS'
-const port = 'SERVER_PORT'
+const redirectUri = 'REDIRECT_URI' // Redirect uri used when registering your app, should be your server port
+const server_address = 'VUE_SERVER_ADDRESS' // This should be your default Vue server address (likely http://localhost:8080 or 8081 )
+const port = 'SERVER_PORT' 
 const scope = 'user-read-private user-read-email';
 
 /**
