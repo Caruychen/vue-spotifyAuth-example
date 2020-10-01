@@ -7,18 +7,12 @@
 </template>
 
 <script>
-import store from "@/store/store.js";
 
 export default {
   data() {
     return {
       username: "login"
     };
-  },
-  beforeCreate() {
-    if (store.access_token) {
-      this.$router.push('/');
-    }
   }
 };
 </script>

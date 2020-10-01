@@ -41,31 +41,33 @@
 </template>
 
 <script>
+// import Vue from "vue";
 import store from "@/store/store.js";
-import Vue from "vue";
 
 export default {
   data() {
     return {
-      user: null,
-    }
+      user: null
+    };
   },
   methods: {
     logOut() {
-      store.access_token = null
-      store.refresh_token = null
-      this.$router.push('/login')
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      this.$router.push("/login");
     }
   },
   created() {
-    Vue.axios.get('https://api.spotify.com/v1/me', {
-      headers: {
-        'Authorization': 'Bearer ' + store.access_token
+    (async () => {
+      try {
+        const response = await store.getUserData();
+        this.user = response.data;
+      } catch (error) {
+        console.log(`${error} - ${error.response.data.error.message}`)
+
       }
-    })
-    .then((response) => {
-      this.user = response.data
-    })
+    })();
+
   }
 };
 </script>

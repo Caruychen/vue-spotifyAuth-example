@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import store from "../store/store";
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
@@ -55,13 +54,19 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
 
+  // Triggered when callback returns with tokens
   if (to.query.access_token) {
-    store.access_token = to.query.access_token || null;
-    store.refresh_token = to.query.refresh_token || null;
+    localStorage.access_token = to.query.access_token
+    localStorage.refresh_token = to.query.refresh_token
+
+    next({
+      path: "/"
+    })
   }
 
+  // Routes requiring authentication are redirected to login if access tokens are not in local storage
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if(!(store.access_token && store.refresh_token)) {
+    if(!(localStorage.access_token)) {
       next({
         name: 'Login'
       })
