@@ -41,4 +41,4 @@ or
 node src/server/server.js
 ```
 
-Then open htt://localhost:8080 in a browser
+Then open http://localhost:8080 in a browser
